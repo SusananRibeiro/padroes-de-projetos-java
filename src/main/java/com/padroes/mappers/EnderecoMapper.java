@@ -1,7 +1,5 @@
 package com.padroes.mappers;
 
-import com.padroes.dtos.ClienteRequest;
-import com.padroes.dtos.ClienteResponse;
 import com.padroes.dtos.EnderecoRequest;
 import com.padroes.dtos.EnderecoResponse;
 import com.padroes.entities.models.Cliente;
@@ -9,7 +7,7 @@ import com.padroes.entities.models.Endereco;
 
 public class EnderecoMapper {
 
-    public static Endereco enderecoRequestParaCEndereco(EnderecoRequest enderecoRequest, Cliente cliente) {
+    public static Endereco enderecoRequestParaEndereco(EnderecoRequest enderecoRequest, Cliente cliente) {
         Endereco saida = new Endereco();
         saida.setRua(enderecoRequest.getRua());
         saida.setBairro(enderecoRequest.getBairro());
