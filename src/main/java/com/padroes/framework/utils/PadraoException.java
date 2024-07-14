@@ -3,10 +3,15 @@ package com.padroes.framework.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Excecao extends Exception {
+public class PadraoException extends Exception {
     private List<String> mensagens = new ArrayList<>();
-    public Excecao(String mensagem) {
+    public PadraoException(String mensagem) {
+
         super(mensagem);
+    }
+
+    public PadraoException(List<String> mensagens) {
+        this.mensagens = mensagens;
     }
 
     public List<String> getMensagens() {
