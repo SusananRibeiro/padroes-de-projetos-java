@@ -1,5 +1,4 @@
 package com.padroes.services.impl;
-
 import com.padroes.dtos.ClienteRequest;
 import com.padroes.dtos.ClienteResponse;
 import com.padroes.entities.models.Cliente;
@@ -11,11 +10,12 @@ import com.padroes.framework.utils.StringUtil;
 import com.padroes.mappers.ClienteMapper;
 import com.padroes.services.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Service
 public class ClienteServiceImpl implements IClienteService {
 
     @Autowired

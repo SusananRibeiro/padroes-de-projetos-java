@@ -20,7 +20,7 @@ public class EnderecoController {
     @Autowired
     private EnderecoServiceImpl enderecoService;
 
-    @GetMapping("/carregar")
+    @GetMapping("/listarEnderecos")
     @LogRest
     public ResponseEntity<List<EnderecoResponse>> carregarEnderecos(){
         List<EnderecoResponse> out = enderecoService.carregarEnderecos();
@@ -28,22 +28,22 @@ public class EnderecoController {
         return ResponseEntity.ok(out);
     }
 
-    @GetMapping("/carregar/{id}")
+    @GetMapping("/listarEnderecos/{id}")
     @LogRest
     public ResponseEntity<EnderecoResponse> carregarEnderecoById(@PathVariable Long id) throws PadraoException {
         return ResponseEntity.ok(enderecoService.carregarEnderecoById(id));
     }
 
-    @PostMapping("/criar")
+    @PostMapping("/cadastrarEndereco")
     @LogRest
     public ResponseEntity<?> criarEndereco(@RequestBody EnderecoRequest endereco){
         try {
             EnderecoResponse out = enderecoService.criarEndereco(endereco);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(out);
-        } catch (PadraoException senac) {
-            senac.printStackTrace();
-            return ResponseEntity.badRequest().body(ResponseUtil.responseMapper(senac.getMensagens()));
+        } catch (PadraoException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(ResponseUtil.responseMapper(e.getMensagens()));
         } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity
@@ -52,7 +52,7 @@ public class EnderecoController {
         }
     }
 
-    @PutMapping("/atualizar/{id}")
+    @PutMapping("/atualizarEndereco/{id}")
     @LogRest
     public ResponseEntity<?> atualizarEndereco(@PathVariable Long id, @RequestBody EnderecoRequest endereco){
         try {
@@ -70,7 +70,7 @@ public class EnderecoController {
         }
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/excluirEndereco/{id}")
     @LogRest
     public ResponseEntity<Void> deletarEndereco(@PathVariable Long id){
         enderecoService.deletarEndereco(id);
