@@ -24,19 +24,19 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping(path = "/carregar")
+    @GetMapping(path = "/listarClientes")
     @LogRest
     public ResponseEntity<List<ClienteResponse>> carregarClientes(){
         return ResponseEntity.ok(clienteService.carregarClietes());
     }
 
-    @GetMapping("/carregar/{id}")
+    @GetMapping("/listarClientes/{id}")
     @LogRest
     public ResponseEntity<ClienteResponse> carregarClienteById(@PathVariable Long id) throws PadraoException {
         return ResponseEntity.ok(clienteService.carregarClienteById(id));
     }
 
-    @PostMapping("/criar")
+    @PostMapping("/cadastrarCliente")
     @LogRest
     public ResponseEntity<?> criarCliente (@RequestBody ClienteRequest clienteRequest){
         try{
@@ -52,7 +52,7 @@ public class ClienteController {
         }
     }
 
-    @PutMapping("/atualizar/{id}")
+    @PutMapping("/atualizarCliente/{id}")
     @LogRest
     public ResponseEntity<?> atualizarCliente (@PathVariable Long id, @RequestBody ClienteRequest clienteRequest) {
         try {
@@ -68,7 +68,7 @@ public class ClienteController {
         }
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/excluirCliente/{id}")
     @LogRest
     public ResponseEntity<Void> deletarCliente(@PathVariable Long id){
         clienteService.deletarCliente(id);

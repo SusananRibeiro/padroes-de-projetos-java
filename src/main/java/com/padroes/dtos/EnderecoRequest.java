@@ -1,9 +1,7 @@
 package com.padroes.dtos;
 
-import com.padroes.entities.models.Cliente;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 @Data
 public class EnderecoRequest {
 
@@ -12,8 +10,7 @@ public class EnderecoRequest {
     private String cidade;
     private String estado;
     private Integer cep;
-    private LocalDateTime deleteAt;
-    private Cliente cliente;
+    private Long clienteId;
 
     // Getters e Setters
     // toString()

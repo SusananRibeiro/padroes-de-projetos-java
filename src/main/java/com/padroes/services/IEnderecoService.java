@@ -5,7 +5,7 @@ import com.padroes.dtos.EnderecoResponse;
 import com.padroes.framework.utils.PadraoException;
 import org.springframework.stereotype.Service;
 import java.util.List;
-@Service
+
 public interface IEnderecoService {
     List<EnderecoResponse> carregarEnderecos();
     EnderecoResponse criarEndereco(EnderecoRequest enderecoRequest) throws PadraoException;

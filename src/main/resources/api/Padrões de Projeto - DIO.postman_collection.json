@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "5db6e8f4-51f3-4326-a082-6020b811defc",
+		"name": "Padrões de Projeto - DIO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27532932",
+		"_collection_link": "https://warped-firefly-748319.postman.co/workspace/Team-Workspace~62cf569d-daee-4ae8-87d9-2d1be527e9f2/collection/27532932-5db6e8f4-51f3-4326-a082-6020b811defc?action=share&source=collection_link&creator=27532932"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Cliente GET Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/clientes/listarClientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clientes",
+								"listarClientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente GET por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/clientes/listarClientes/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clientes",
+								"listarClientes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Nome\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clientes/cadastrarCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clientes",
+								"cadastrarCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Nome Atual\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clientes/atualizarCliente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clientes",
+								"atualizarCliente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/clientes/excluirCliente/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clientes",
+								"excluirCliente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereço",
+			"item": [
+				{
+					"name": "Endereço GET Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/enderecos/listarEnderecos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"enderecos",
+								"listarEnderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endereço GET por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/enderecos/listarEnderecos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"enderecos",
+								"listarEnderecos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endereço POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rua\": \"Rua\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"Estado\",\r\n    \"cep\": 88810600,\r\n    \"clienteId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/enderecos/cadastrarEndereco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"enderecos",
+								"cadastrarEndereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endereço PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rua\": \"Rua Atualizado\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"Estado\",\r\n    \"cep\": 88810600,\r\n    \"clienteId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/enderecos/atualizarEndereco/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"enderecos",
+								"atualizarEndereco",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endereço DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/enderecos/excluirEndereco/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"enderecos",
+								"excluirEndereco",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

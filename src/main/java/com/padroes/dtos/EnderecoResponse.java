@@ -1,9 +1,7 @@
 package com.padroes.dtos;
 
-import com.padroes.entities.models.Cliente;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 @Data
 public class EnderecoResponse {
     private Long id;
