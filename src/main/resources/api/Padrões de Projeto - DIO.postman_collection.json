@@ -36,7 +36,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/clientes/listarClientes/4",
+							"raw": "http://localhost:8081/clientes/listarClientes/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -45,7 +45,7 @@
 							"path": [
 								"clientes",
 								"listarClientes",
-								"4"
+								"11"
 							]
 						}
 					},
@@ -87,7 +87,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Nome\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"cpf\": \"12345678901\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Nome Atual\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"cpf\": \"12345678901\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,7 +95,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/clientes/atualizarCliente/3",
+							"raw": "http://localhost:8081/clientes/atualizarCliente/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -104,7 +104,7 @@
 							"path": [
 								"clientes",
 								"atualizarCliente",
-								"3"
+								"11"
 							]
 						}
 					},
@@ -116,7 +116,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/clientes/excluirCliente/3",
+							"raw": "http://localhost:8081/clientes/excluirCliente/9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -125,7 +125,7 @@
 							"path": [
 								"clientes",
 								"excluirCliente",
-								"3"
+								"9"
 							]
 						}
 					},
@@ -162,7 +162,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enderecos/listarEnderecos/2",
+							"raw": "http://localhost:8081/enderecos/listarEnderecos/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -171,7 +171,7 @@
 							"path": [
 								"enderecos",
 								"listarEnderecos",
-								"2"
+								"11"
 							]
 						}
 					},
@@ -213,7 +213,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"rua\": \"Rua Atual\",\r\n    \"numero\": \"sem numero\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"SC\",\r\n    \"cep\": 88810600,\r\n    \"pais\": \"Brasil\",\r\n    \"clienteId\": 4\r\n}",
+							"raw": "{\r\n    \"rua\": \"Rua Atualizado\",\r\n    \"numero\": \"sem numero\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": 88810600,\r\n    \"pais\": \"Brasil\",\r\n    \"clienteId\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -221,7 +221,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/enderecos/atualizarEndereco/2",
+							"raw": "http://localhost:8081/enderecos/atualizarEndereco/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -230,7 +230,7 @@
 							"path": [
 								"enderecos",
 								"atualizarEndereco",
-								"2"
+								"11"
 							]
 						}
 					},
@@ -242,7 +242,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enderecos/excluirEndereco/2",
+							"raw": "http://localhost:8081/enderecos/excluirEndereco/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -251,7 +251,7 @@
 							"path": [
 								"enderecos",
 								"excluirEndereco",
-								"2"
+								"11"
 							]
 						}
 					},
@@ -288,7 +288,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/produtos/listarProdutos/3",
+							"raw": "http://localhost:8081/produtos/listarProdutos/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -297,7 +297,7 @@
 							"path": [
 								"produtos",
 								"listarProdutos",
-								"3"
+								"11"
 							]
 						}
 					},
@@ -310,7 +310,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Camisa Preta\",\r\n    \"descricao\": \"Camisa de manga curta branca masculina. Tamanhos: P, M, G e GG.\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Camisa Rosa\",\r\n    \"descricao\": \"Camisa de comprida rosa feminina. Tamanhos: P, M, G, GG, G1, G2 e G3.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -339,7 +339,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Camisa Preta Atual\",\r\n    \"descricao\": \"Camisa de manga curta branca masculina. Tamanhos: P, M, G e GG.\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Camisa Rosa Escuro\",\r\n    \"descricao\": \"Camisa de comprida rosa feminina. Tamanhos: P, M, G, GG, G1, G2 e G3.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -347,7 +347,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/produtos/atualizarProduto/3",
+							"raw": "http://localhost:8081/produtos/atualizarProduto/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -356,7 +356,7 @@
 							"path": [
 								"produtos",
 								"atualizarProduto",
-								"3"
+								"11"
 							]
 						}
 					},
@@ -368,7 +368,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/produtos/excluirProduto/3",
+							"raw": "http://localhost:8081/produtos/excluirProduto/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -377,7 +377,7 @@
 							"path": [
 								"produtos",
 								"excluirProduto",
-								"3"
+								"11"
 							]
 						}
 					},
@@ -414,7 +414,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/pedidos/listarPedidos/10",
+							"raw": "http://localhost:8081/pedidos/listarPedidos/12",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -423,7 +423,7 @@
 							"path": [
 								"pedidos",
 								"listarPedidos",
-								"10"
+								"12"
 							]
 						}
 					},
@@ -436,7 +436,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"valorDesconto\": 20,\r\n    \"clienteId\": 33,\r\n    \"enderecoId\": 3\r\n}",
+							"raw": "{\r\n    \"valorDesconto\": 20,\r\n    \"clienteId\": 3,\r\n    \"enderecoId\": 12\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -465,7 +465,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"valorDesconto\": 100,\r\n    \"clienteId\": 10,\r\n    \"enderecoId\": 9\r\n}",
+							"raw": "{\r\n    \"valorDesconto\": 200.95,\r\n    \"clienteId\": 3,\r\n    \"enderecoId\": 12\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -473,7 +473,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/pedidos/atualizarPedido/10",
+							"raw": "http://localhost:8081/pedidos/atualizarPedido/12",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -482,7 +482,7 @@
 							"path": [
 								"pedidos",
 								"atualizarPedido",
-								"10"
+								"12"
 							]
 						}
 					},
@@ -494,7 +494,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/pedidos/excluirPedido/10",
+							"raw": "http://localhost:8081/pedidos/excluirPedido/12",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -503,7 +503,7 @@
 							"path": [
 								"pedidos",
 								"excluirPedido",
-								"10"
+								"12"
 							]
 						}
 					},
@@ -540,7 +540,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/pedidoItens/listarPedidoItens/1",
+							"raw": "http://localhost:8081/pedidoItens/listarPedidoItens/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -549,7 +549,7 @@
 							"path": [
 								"pedidoItens",
 								"listarPedidoItens",
-								"1"
+								"11"
 							]
 						}
 					},
@@ -562,7 +562,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"quantidade\": 20,\r\n    \"valorUnitario\": 400.45,\r\n    \"produtoId\": 2,\r\n    \"pedidoId\": 2\r\n}",
+							"raw": "{\r\n    \"quantidade\": 20,\r\n    \"valorUnitario\": 400.45,\r\n    \"produtoId\": 2,\r\n    \"pedidoId\": 12\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -591,7 +591,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"quantidade\": 20,\r\n    \"valorUnitario\": 400.45,\r\n    \"produtoId\": 2,\r\n    \"pedidoId\": 2\r\n}",
+							"raw": "{\r\n    \"quantidade\": 20,\r\n    \"valorUnitario\": 400.45,\r\n    \"produtoId\": 3,\r\n    \"pedidoId\": 12\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -599,7 +599,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/pedidoItens/atualizarPedidoItens/2",
+							"raw": "http://localhost:8081/pedidoItens/atualizarPedidoItens/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -608,7 +608,7 @@
 							"path": [
 								"pedidoItens",
 								"atualizarPedidoItens",
-								"2"
+								"11"
 							]
 						}
 					},
@@ -620,7 +620,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/pedidoItens/excluirPedidoItens/2",
+							"raw": "http://localhost:8081/pedidoItens/excluirPedidoItens/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -629,7 +629,7 @@
 							"path": [
 								"pedidoItens",
 								"excluirPedidoItens",
-								"2"
+								"11"
 							]
 						}
 					},

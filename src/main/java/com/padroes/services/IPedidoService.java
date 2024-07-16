@@ -7,7 +7,7 @@ import java.util.List;
 public interface IPedidoService {
     List<PedidoResponse> carregarPedidos();
     PedidoResponse criarPedido(PedidoRequest pedido) throws PadraoException;
-    PedidoResponse atualizarPedido(Long id, PedidoRequest pedido) throws PadraoException;
-    void deletarPedido(Long id);
+    boolean atualizarPedido(Long id, PedidoRequest pedido) throws PadraoException;
+    void deletarPedido(Long id) throws PadraoException;
     PedidoResponse carregarPedidoById(Long id) throws PadraoException;
 }

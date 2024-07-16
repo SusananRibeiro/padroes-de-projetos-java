@@ -11,6 +11,5 @@ public class ClienteRequest {
     private String telefone;
     private String email;
 
-    // Getters e Setters
-    // toString()
+// Não precisa gerar Getters, Setters e toString(), pois o "@Data" vai fazer isso
 }

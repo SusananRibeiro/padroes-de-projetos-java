@@ -130,6 +130,17 @@ select * from pedidos;
 select * from pedidos_itens;
 select * from produtos;
 
+
+DELETE FROM pedidos_itens WHERE id = 2;
+DELETE FROM pedidos_itens WHERE id = 9;
+DELETE FROM pedidos_itens WHERE id = 10;
+DELETE FROM pedidos WHERE id = 2;
+DELETE FROM pedidos WHERE id = 9;
+DELETE FROM pedidos WHERE id = 10;
+DELETE FROM enderecos WHERE id = 10;
+DELETE FROM enderecos WHERE id = 9;
+
+
 /*
 drop table pedidos_itens;
 drop table pedidos;

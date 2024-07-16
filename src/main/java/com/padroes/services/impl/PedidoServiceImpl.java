@@ -73,7 +73,7 @@ public class PedidoServiceImpl implements IPedidoService {
     }
 
     @Override
-    public PedidoResponse atualizarPedido(Long id, PedidoRequest pedido) throws PadraoException {
+    public boolean atualizarPedido(Long id, PedidoRequest pedido) throws PadraoException {
         List<String> mensagens = this.validacaoManutencaoPedido(pedido);
 
         if(!mensagens.isEmpty()){
@@ -103,13 +103,15 @@ public class PedidoServiceImpl implements IPedidoService {
 
         PedidoResponse saida = PedidoMapper.pedidoParaPedidoResponse(pedidosRetorno.get());
 
-        return saida;
+        return true;
     }
 
     @Override
-    public void deletarPedido(Long id) {
+    public void deletarPedido(Long id) throws PadraoException {
+        if (!this.pedidoRepository.existsById(id)) {
+            throw new PadraoException("Pedido não existe");
+        }
         pedidoRepository.deleteById(id);
-
     }
     @Override
     public PedidoResponse carregarPedidoById(Long id) throws PadraoException {
@@ -136,13 +138,6 @@ public class PedidoServiceImpl implements IPedidoService {
         return saida;
 
     }
-
-//    @Override
-//    public Pedido carregarPedidoEntidade(Long id) {
-//        Pedido pedidos = pedidoRepository.findById(id).get();
-//
-//        return pedidos;
-//    }
 
     private List<String> validacaoManutencaoPedido(PedidoRequest pedidoRequest){
         List<String> mensagens = new ArrayList<>();

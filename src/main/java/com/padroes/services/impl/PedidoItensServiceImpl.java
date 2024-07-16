@@ -62,7 +62,7 @@ public class PedidoItensServiceImpl implements IPedidoItensService {
     }
 
     @Override
-    public PedidoItensResponse atualizarPedidoItens(Long id, PedidoItensRequest pedidoItensRequest) throws PadraoException {
+    public boolean atualizarPedidoItens(Long id, PedidoItensRequest pedidoItensRequest) throws PadraoException {
         List<String> mensagens = this.validacaoManutencaoPedidoItens(pedidoItensRequest);
 
         if(!mensagens.isEmpty()){
@@ -93,11 +93,14 @@ public class PedidoItensServiceImpl implements IPedidoItensService {
 
         PedidoItensResponse saida = PedidoItensMapper.pedidoItensParaPedidoItensResponse(pedidosItensRetorno.get());
 
-        return saida;
+        return true;
     }
 
     @Override
-    public void deletarPedidoItens(Long id) {
+    public void deletarPedidoItens(Long id) throws PadraoException {
+        if (!this.pedidoItensRepository.existsById(id)) {
+            throw new PadraoException("Endereço não existe");
+        }
         pedidoItensRepository.deleteById(id);
     }
 

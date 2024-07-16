@@ -8,7 +8,7 @@ import java.util.List;
 public interface IProdutoService {
     List<ProdutoResponse> carregarProdutos();
     ProdutoResponse criarProduto(ProdutoRequest produtosRequestDom) throws PadraoException;
-    ProdutoResponse atualizarProduto(Long id, ProdutoRequest produtosRequestDom) throws PadraoException;
-    void deletarProduto(Long id);
+    boolean atualizarProduto(Long id, ProdutoRequest produtosRequestDom) throws PadraoException;
+    void deletarProduto(Long id) throws PadraoException;
     ProdutoResponse carregarProdutoById(Long id) throws PadraoException;
 }

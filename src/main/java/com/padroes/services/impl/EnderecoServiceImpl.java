@@ -52,7 +52,7 @@ public class EnderecoServiceImpl implements IEnderecoService {
     }
 
     @Override
-    public EnderecoResponse atualizarEndereco(Long id, EnderecoRequest enderecoRequest) throws PadraoException {
+    public boolean atualizarEndereco(Long id, EnderecoRequest enderecoRequest) throws PadraoException {
         List<String> mensagens = this.validacaoManutencaoEndereco(enderecoRequest);
         if(!mensagens.isEmpty()){
             throw new PadraoException(mensagens);
@@ -80,11 +80,14 @@ public class EnderecoServiceImpl implements IEnderecoService {
 
         EnderecoResponse saida = EnderecoMapper.enderecoParaEnderecoResponse(endereco.get());
 
-        return saida;
+        return true;
     }
 
     @Override
-    public void deletarEndereco(Long id) {
+    public void deletarEndereco(Long id) throws PadraoException {
+        if (!this.enderecoRepository.existsById(id)) {
+            throw new PadraoException("Endereço não existe");
+        }
         enderecoRepository.deleteById(id);
     }
 
