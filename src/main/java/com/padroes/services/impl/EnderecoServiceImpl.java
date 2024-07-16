@@ -6,6 +6,8 @@ import com.padroes.entities.models.Endereco;
 import com.padroes.entities.repositories.EnderecoClienteRepository;
 import com.padroes.entities.repositories.EnderecoRepository;
 import com.padroes.framework.utils.PadraoException;
+import com.padroes.framework.utils.StringUtil;
+import com.padroes.framework.utils.enums.EstadosDoBrasil;
 import com.padroes.mappers.EnderecoMapper;
 import com.padroes.services.IEnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +65,7 @@ public class EnderecoServiceImpl implements IEnderecoService {
 
         Optional<Endereco> endereco = enderecoRepository.findById(id).map(record -> {
             record.setRua(enderecoRequest.getRua());
+            record.setNumero(enderecoRequest.getNumero());
             record.setBairro(enderecoRequest.getBairro());
             record.setCidade(enderecoRequest.getCidade());
             record.setEstado(enderecoRequest.getEstado());
@@ -107,13 +110,36 @@ public class EnderecoServiceImpl implements IEnderecoService {
         if(enderecoRequest.getCidade() == null || enderecoRequest.getCidade() == "") {
             mensagens.add("Cidade é obrigatório.");
         }
-        if(enderecoRequest.getEstado() == null || enderecoRequest.getEstado() == "") {
+        if(StringUtil.validarString(String.valueOf(enderecoRequest.getEstado()))){
+            mensagens.add("A sigla do estado é obrigatório.");
+        }
+        if(verificarUFDoEstado(String.valueOf(enderecoRequest.getEstado())) == false) {
             mensagens.add("Estado é obrigatório.");
+        }
+        if(StringUtil.validarString(String.valueOf(enderecoRequest.getCep()))){
+            mensagens.add("O CEP é obrigatório.");
+        }
+        if(!Integer.toString(enderecoRequest.getCep()).matches("^[0-9]{8}$")){
+            mensagens.add("CEP invalido.");
         }
         if(enderecoRequest.getClienteId() == null) {
             mensagens.add("Cliente é obrigatório.");
         }
+        if(!Long.toString(enderecoRequest.getClienteId()).matches("^[0-9]$")) {
+            mensagens.add("Cliente invalido.");
+        }
 
         return mensagens;
+    }
+
+    // Validação estados
+    public boolean verificarUFDoEstado(String uf) {
+        EstadosDoBrasil estadosDoBrasil = EstadosDoBrasil.valueOf(uf);
+        try {
+            estadosDoBrasil.valueOf(uf);
+            return true; // O estado é válido
+        } catch (IllegalArgumentException e) {
+            return false; // O estado é inválido
+        }
     }
 }

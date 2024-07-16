@@ -6,6 +6,7 @@ public class ClienteRequest {
 
     private String nome;
     private String sobrenome;
+    private String cpf;
     private LocalDate dataNascimento;
     private String telefone;
     private String email;

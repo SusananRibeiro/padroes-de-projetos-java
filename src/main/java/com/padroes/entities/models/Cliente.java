@@ -20,9 +20,11 @@ public class Cliente {
     private String nome;
     @Column(nullable = false)
     private String sobrenome;
+    @Column(nullable = false, length = 11, unique = true)
+    private String cpf;
     @Column
     private LocalDate dataNascimento;
-    @Column
+    @Column(length = 12)
     private String telefone;
     @Column(nullable = false)
     private String email;
