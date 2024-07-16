@@ -46,7 +46,7 @@ public class ProdutoServiceImpl implements IProdutoService {
     }
 
     @Override
-    public ProdutoResponse atualizarProduto(Long id, ProdutoRequest produtoRequest) throws PadraoException {
+    public boolean atualizarProduto(Long id, ProdutoRequest produtoRequest) throws PadraoException {
         List<String> mensagens = this.validacaoManutencaoProduto(produtoRequest);
 
         if(!mensagens.isEmpty()){
@@ -65,11 +65,14 @@ public class ProdutoServiceImpl implements IProdutoService {
 
         ProdutoResponse saida = ProdutoMapper.produtoParaProdutoResponse(produtos.get());
 
-        return saida;
+        return true;
     }
 
     @Override
-    public void deletarProduto(Long id) {
+    public void deletarProduto(Long id) throws PadraoException {
+        if (!this.produtosRepository.existsById(id)) {
+            throw new PadraoException("Produto não existe");
+        }
         produtosRepository.deleteById(id);
     }
 

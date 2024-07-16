@@ -67,7 +67,7 @@ public class PedidosController {
 
     @DeleteMapping("/excluirPedido/{id}")
     @LogRest
-    public ResponseEntity<Void> deletarPedido(@PathVariable Long id){
+    public ResponseEntity<Void> deletarPedido(@PathVariable Long id) throws PadraoException {
         pedidosServiceImpl.deletarPedido(id);
         return ResponseEntity.ok(null);
     }

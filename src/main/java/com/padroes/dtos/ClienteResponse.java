@@ -16,6 +16,5 @@ public class ClienteResponse {
     private String email;
     private List<ClienteEnderecoResponse> enderecos;
 
-    // Getters e Setters
-    // toString()
+// Não precisa gerar Getters, Setters e toString(), pois o "@Data" vai fazer isso
 }

@@ -56,9 +56,9 @@ public class EnderecoController {
     @LogRest
     public ResponseEntity<?> atualizarEndereco(@PathVariable Long id, @RequestBody EnderecoRequest endereco){
         try {
-            EnderecoResponse out = enderecoService.atualizarEndereco(id, endereco);
+            boolean saida = enderecoService.atualizarEndereco(id, endereco);
 
-            return ResponseEntity.ok(out);
+            return ResponseEntity.ok(saida);
         } catch (PadraoException senac) {
             senac.printStackTrace();
             return ResponseEntity.badRequest().body(ResponseUtil.responseMapper(senac.getMensagens()));
@@ -72,7 +72,7 @@ public class EnderecoController {
 
     @DeleteMapping("/excluirEndereco/{id}")
     @LogRest
-    public ResponseEntity<Void> deletarEndereco(@PathVariable Long id){
+    public ResponseEntity<Void> deletarEndereco(@PathVariable Long id) throws PadraoException {
         enderecoService.deletarEndereco(id);
         return ResponseEntity.ok(null);
     }

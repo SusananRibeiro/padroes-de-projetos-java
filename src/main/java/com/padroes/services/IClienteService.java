@@ -8,8 +8,8 @@ import java.util.List;
 public interface IClienteService {
     List<ClienteResponse> carregarClietes();
     ClienteResponse criarCliente(ClienteRequest clienteRequest) throws PadraoException;
-    ClienteResponse atualizarCliente(Long id, ClienteRequest clienteRequest) throws PadraoException;
-    void deletarCliente(Long id);
+    boolean atualizarCliente(Long id, ClienteRequest clienteRequest) throws PadraoException;
+    String deletarCliente(Long id) throws PadraoException;
     ClienteResponse carregarClienteById(Long id) throws PadraoException;
 
 }

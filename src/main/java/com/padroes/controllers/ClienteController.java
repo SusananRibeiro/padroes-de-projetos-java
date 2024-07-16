@@ -70,7 +70,7 @@ public class ClienteController {
 
     @DeleteMapping("/excluirCliente/{id}")
     @LogRest
-    public ResponseEntity<Void> deletarCliente(@PathVariable Long id){
+    public ResponseEntity<Void> deletarCliente(@PathVariable Long id) throws PadraoException {
         clienteService.deletarCliente(id);
 
         return ResponseEntity.ok(null);

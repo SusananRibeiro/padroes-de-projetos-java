@@ -4,6 +4,7 @@ import com.padroes.dtos.ClienteResponse;
 import com.padroes.entities.models.Cliente;
 import com.padroes.entities.models.Endereco;
 import com.padroes.entities.repositories.ClienteEnderecoRepository;
+import com.padroes.entities.repositories.ClienteRelatorioRepository;
 import com.padroes.entities.repositories.ClienteRepository;
 import com.padroes.framework.utils.PadraoException;
 import com.padroes.framework.utils.StringUtil;
@@ -22,6 +23,8 @@ public class ClienteServiceImpl implements IClienteService {
     private ClienteRepository clienteRepository;
     @Autowired
     private ClienteEnderecoRepository clienteEnderecoRepository;
+    @Autowired
+    private ClienteRelatorioRepository clienteRelatorioRepository;
     // GET todos
     @Override
     public List<ClienteResponse> carregarClietes() {
@@ -48,34 +51,51 @@ public class ClienteServiceImpl implements IClienteService {
 
     // PUT
     @Override
-    public ClienteResponse atualizarCliente(Long id, ClienteRequest clienteRequest) throws PadraoException {
-        List<String> mensagens = this.validacaoManutencaoCliente(clienteRequest);
-        if(!mensagens.isEmpty()){
-            throw new PadraoException(mensagens);
-        }
-        Optional<Cliente> cliente = clienteRepository.findById(id).map(record -> {
-            record.setNome(clienteRequest.getNome());
-            record.setSobrenome(clienteRequest.getSobrenome());
-            record.setCpf(clienteRequest.getCpf());
-            record.setDataNascimento(clienteRequest.getDataNascimento());
-            record.setTelefone(clienteRequest.getTelefone());
-            record.setEmail(clienteRequest.getEmail());
-            return clienteRepository.save(record);
-        });
+    public boolean atualizarCliente(Long id, ClienteRequest clienteRequest) throws PadraoException {
+        Optional<Cliente> clienteExistente = clienteRepository.findById(id);
 
-        if(!cliente.isPresent()) {
+        if (clienteExistente.isPresent()) {
+            Cliente cliente = clienteExistente.get();
+            // Implemente suas próprias validações aqui, se necessário
+            validacaoManutencaoCliente(clienteRequest);
+
+            // Verificar se o CPF do cliente existente corresponde ao CPF informado na requisição
+            if (!cliente.getCpf().equals(clienteRequest.getCpf())) {
+                // CPF informado é diferente do CPF armazenado para este cliente, então valida o CPF existente
+                if (validarCPF(clienteRequest.getCpf())) {
+                    throw new PadraoException("CPF já cadastrado para outro cliente!");
+                }
+            }
+            // Impedir a alteração do CPF
+            if (!cliente.getCpf().equals(clienteRequest.getCpf())) {
+                throw new PadraoException("Não é permitido alterar o CPF do cliente!");
+            }
+            // Atualizar os dados do cliente (exceto CPF)
+            cliente.setNome(clienteRequest.getNome());
+            cliente.setSobrenome(clienteRequest.getSobrenome());
+            cliente.setDataNascimento(clienteRequest.getDataNascimento());
+            cliente.setTelefone(clienteRequest.getTelefone());
+            cliente.setEmail(clienteRequest.getEmail());
+
+            // Salvar as alterações no banco de dados
+            Cliente clienteAtualizado = clienteRepository.save(cliente);
+
+            // Criar e retornar a resposta de sucesso com os dados atualizados do cliente
+            ClienteResponse out = ClienteMapper.clienteParaClienteResponse(clienteAtualizado);
+            return true;
+        } else {
             throw new PadraoException("Cliente informado não existe!");
         }
-
-        ClienteResponse saida = ClienteMapper.clienteParaClienteResponse(cliente.get());
-
-        return saida;
     }
 
     // Delete
     @Override
-    public void deletarCliente(Long id) {
+    public String deletarCliente(Long id) throws PadraoException {
+        if (!this.clienteRepository.existsById(id)) {
+            throw new PadraoException("Cliente não existe");
+        }
         clienteRepository.deleteById(id);
+        return "Cliente excluir com sucesso!";
     }
 
     // GET por ID
@@ -99,6 +119,9 @@ public class ClienteServiceImpl implements IClienteService {
         if(StringUtil.validarString(clienteRequest.getSobrenome())) {
             mensagens.add("Sobrenome do cliente é obrigatório.");
         }
+        if(validarCPF(clienteRequest.getCpf())) {
+            mensagens.add("CPF já cadastrado para outro cliente!");
+        }
         if(StringUtil.validarString(clienteRequest.getCpf())) {
             mensagens.add("CPF é obrigatório.");
         }
@@ -106,5 +129,10 @@ public class ClienteServiceImpl implements IClienteService {
             mensagens.add("E-mail é obrigatório.");
         }
         return mensagens;
+    }
+
+    // Validação do CPF
+    public boolean validarCPF(String cpf) {
+        return clienteRelatorioRepository.existsByCpf(cpf);
     }
 }

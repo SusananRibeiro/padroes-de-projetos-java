@@ -9,7 +9,7 @@ import java.util.List;
 public interface IEnderecoService {
     List<EnderecoResponse> carregarEnderecos();
     EnderecoResponse criarEndereco(EnderecoRequest enderecoRequest) throws PadraoException;
-    EnderecoResponse atualizarEndereco(Long id, EnderecoRequest enderecoRequest) throws PadraoException;
-    void deletarEndereco(Long id);
+    boolean atualizarEndereco(Long id, EnderecoRequest enderecoRequest) throws PadraoException;
+    void deletarEndereco(Long id) throws PadraoException;
     EnderecoResponse carregarEnderecoById(Long id) throws PadraoException;
 }
