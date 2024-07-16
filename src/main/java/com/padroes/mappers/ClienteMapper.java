@@ -14,6 +14,7 @@ public class ClienteMapper {
         Cliente saida = new Cliente();
         saida.setNome(clienteRequest.getNome());
         saida.setSobrenome(clienteRequest.getSobrenome());
+        saida.setCpf(clienteRequest.getCpf());
         saida.setDataNascimento(clienteRequest.getDataNascimento());
         saida.setTelefone(clienteRequest.getTelefone());
         saida.setEmail(clienteRequest.getEmail());
@@ -26,6 +27,7 @@ public class ClienteMapper {
         saida.setId(cliente.getId());
         saida.setNome(cliente.getNome());
         saida.setSobrenome(cliente.getSobrenome());
+        saida.setCpf(cliente.getCpf());
         saida.setDataNascimento(cliente.getDataNascimento());
         saida.setTelefone(cliente.getTelefone());
         saida.setEmail(cliente.getEmail());
@@ -49,6 +51,7 @@ public class ClienteMapper {
         saida.setCidade(endereco.getCidade());
         saida.setEstado(endereco.getEstado());
         saida.setCep(endereco.getCep());
+        saida.setPais(endereco.getPais());
         return saida;
 
     }

@@ -10,6 +10,7 @@ public class ClienteResponse {
     private Long id;
     private String nome;
     private String sobrenome;
+    private String cpf;
     private LocalDate dataNascimento;
     private String telefone;
     private String email;

@@ -36,7 +36,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/clientes/listarClientes/3",
+							"raw": "http://localhost:8081/clientes/listarClientes/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -45,7 +45,7 @@
 							"path": [
 								"clientes",
 								"listarClientes",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -58,7 +58,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Nome\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Nome\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"cpf\": \"12345678904\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -87,7 +87,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Nome Atual\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Nome\",\r\n    \"sobrenome\": \"Sobrenome3\",\r\n    \"cpf\": \"12345678901\",\r\n    \"dataNascimento\": \"2000-03-30\",\r\n    \"telefone\": \"48996616030\",\r\n    \"email\": \"teste@mail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,7 +95,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/clientes/atualizarCliente/2",
+							"raw": "http://localhost:8081/clientes/atualizarCliente/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -104,7 +104,7 @@
 							"path": [
 								"clientes",
 								"atualizarCliente",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -184,7 +184,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"rua\": \"Rua\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"Estado\",\r\n    \"cep\": 88810600,\r\n    \"clienteId\": 4\r\n}",
+							"raw": "{\r\n    \"rua\": \"Rua\",\r\n    \"numero\": \"sem numero\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": 88810600,\r\n    \"pais\": \"Brasil\",\r\n    \"clienteId\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -213,7 +213,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"rua\": \"Rua Atualizado\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"Estado\",\r\n    \"cep\": 88810600,\r\n    \"clienteId\": 4\r\n}",
+							"raw": "{\r\n    \"rua\": \"Rua Atual\",\r\n    \"numero\": \"sem numero\",\r\n    \"bairro\": \"Bairro\",\r\n    \"cidade\": \"Cidade\",\r\n    \"estado\": \"SC\",\r\n    \"cep\": 88810600,\r\n    \"pais\": \"Brasil\",\r\n    \"clienteId\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -242,7 +242,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enderecos/excluirEndereco/3",
+							"raw": "http://localhost:8081/enderecos/excluirEndereco/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -251,7 +251,385 @@
 							"path": [
 								"enderecos",
 								"excluirEndereco",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Produto GET Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/produtos/listarProdutos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"produtos",
+								"listarProdutos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produto GET por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/produtos/listarProdutos/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"produtos",
+								"listarProdutos",
 								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produto POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Camisa Preta\",\r\n    \"descricao\": \"Camisa de manga curta branca masculina. Tamanhos: P, M, G e GG.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/produtos/cadastrarProduto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"produtos",
+								"cadastrarProduto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produto PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Camisa Preta Atual\",\r\n    \"descricao\": \"Camisa de manga curta branca masculina. Tamanhos: P, M, G e GG.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/produtos/atualizarProduto/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"produtos",
+								"atualizarProduto",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produto DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/produtos/excluirProduto/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"produtos",
+								"excluirProduto",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Pedido GET Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/pedidos/listarPedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidos",
+								"listarPedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido GET por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/pedidos/listarPedidos/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidos",
+								"listarPedidos",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valorDesconto\": 20,\r\n    \"clienteId\": 33,\r\n    \"enderecoId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/pedidos/cadastrarPedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidos",
+								"cadastrarPedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valorDesconto\": 100,\r\n    \"clienteId\": 10,\r\n    \"enderecoId\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/pedidos/atualizarPedido/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidos",
+								"atualizarPedido",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/pedidos/excluirPedido/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidos",
+								"excluirPedido",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido Itens",
+			"item": [
+				{
+					"name": "Pedido Itens GET Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/pedidoItens/listarPedidoItens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidoItens",
+								"listarPedidoItens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido Itens GET por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/pedidoItens/listarPedidoItens/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidoItens",
+								"listarPedidoItens",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido Itens POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantidade\": 20,\r\n    \"valorUnitario\": 400.45,\r\n    \"produtoId\": 2,\r\n    \"pedidoId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/pedidoItens/cadastrarPedidoItens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidoItens",
+								"cadastrarPedidoItens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido Itens PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantidade\": 20,\r\n    \"valorUnitario\": 400.45,\r\n    \"produtoId\": 2,\r\n    \"pedidoId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/pedidoItens/atualizarPedidoItens/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidoItens",
+								"atualizarPedidoItens",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido Itens DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/pedidoItens/excluirPedidoItens/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"pedidoItens",
+								"excluirPedidoItens",
+								"2"
 							]
 						}
 					},

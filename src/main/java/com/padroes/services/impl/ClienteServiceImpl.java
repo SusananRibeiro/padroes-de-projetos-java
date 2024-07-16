@@ -56,6 +56,7 @@ public class ClienteServiceImpl implements IClienteService {
         Optional<Cliente> cliente = clienteRepository.findById(id).map(record -> {
             record.setNome(clienteRequest.getNome());
             record.setSobrenome(clienteRequest.getSobrenome());
+            record.setCpf(clienteRequest.getCpf());
             record.setDataNascimento(clienteRequest.getDataNascimento());
             record.setTelefone(clienteRequest.getTelefone());
             record.setEmail(clienteRequest.getEmail());
@@ -97,6 +98,9 @@ public class ClienteServiceImpl implements IClienteService {
         }
         if(StringUtil.validarString(clienteRequest.getSobrenome())) {
             mensagens.add("Sobrenome do cliente é obrigatório.");
+        }
+        if(StringUtil.validarString(clienteRequest.getCpf())) {
+            mensagens.add("CPF é obrigatório.");
         }
         if(StringUtil.validarString(clienteRequest.getEmail())) {
             mensagens.add("E-mail é obrigatório.");
