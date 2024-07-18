@@ -27,7 +27,7 @@ public class ClienteController {
     @GetMapping(path = "/listarClientes")
     @LogRest
     public ResponseEntity<List<ClienteResponse>> carregarClientes(){
-        return ResponseEntity.ok(clienteService.carregarClietes());
+        return ResponseEntity.ok(clienteService.carregarClientes());
     }
 
     @GetMapping("/listarClientes/{id}")

@@ -6,10 +6,10 @@ import com.padroes.framework.utils.PadraoException;
 import java.util.List;
 
 public interface IClienteService {
-    List<ClienteResponse> carregarClietes();
+    List<ClienteResponse> carregarClientes();
     ClienteResponse criarCliente(ClienteRequest clienteRequest) throws PadraoException;
     boolean atualizarCliente(Long id, ClienteRequest clienteRequest) throws PadraoException;
-    String deletarCliente(Long id) throws PadraoException;
+   void deletarCliente(Long id) throws PadraoException;
     ClienteResponse carregarClienteById(Long id) throws PadraoException;
 
 }
