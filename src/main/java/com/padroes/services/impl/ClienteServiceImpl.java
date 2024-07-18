@@ -1,4 +1,5 @@
 package com.padroes.services.impl;
+import com.padroes.dtos.ClienteEnderecoResponse;
 import com.padroes.dtos.ClienteRequest;
 import com.padroes.dtos.ClienteResponse;
 import com.padroes.entities.models.Cliente;
@@ -27,7 +28,7 @@ public class ClienteServiceImpl implements IClienteService {
     private ClienteRelatorioRepository clienteRelatorioRepository;
     // GET todos
     @Override
-    public List<ClienteResponse> carregarClietes() {
+    public List<ClienteResponse> carregarClientes() {
         List<Cliente> clienteLista = clienteRepository.findAll();
         List<ClienteResponse> saida = clienteLista
                 .stream()
@@ -90,12 +91,11 @@ public class ClienteServiceImpl implements IClienteService {
 
     // Delete
     @Override
-    public String deletarCliente(Long id) throws PadraoException {
+    public void deletarCliente(Long id) throws PadraoException {
         if (!this.clienteRepository.existsById(id)) {
             throw new PadraoException("Cliente não existe");
         }
         clienteRepository.deleteById(id);
-        return "Cliente excluir com sucesso!";
     }
 
     // GET por ID
